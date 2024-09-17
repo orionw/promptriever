@@ -19,11 +19,15 @@ Evaluation can also be done by using the MTEB repository, see [here for examples
 
 ## Links
 
-| Binary |                                                                 Description                                                                |
-|:------|:-------------------------------------------------------------------------------------------------------------------------------------------|
-| [promptriever-llama2-v1](https://huggingface.co/jhu-clsp/FollowIR-7B) |  The promptriever dense retrieval model used in the majority of the paper, based on Llama-2  | 
-| [msmarco-w-instructions](https://huggingface.co/datasets/jhu-clsp/FollowIR-train) | The dataset used to train promptriever-llama2-v1, from augmenting MSMarco with instruction data and instruction-negatives. |
-       
+| Binary | Description |
+|:-------|:------------|
+| [samaya-ai/promptriever-llama2-7b-v1](https://huggingface.co/samaya-ai/promptriever-llama2-7b-v1) | A Promptriever bi-encoder model based on LLaMA 2 (7B parameters).|
+| [samaya-ai/promptriever-llama3.1-8b-instruct-v1](https://huggingface.co/samaya-ai/promptriever-llama3.1-8b-instruct-v1) | A Promptriever bi-encoder model based on LLaMA 3.1 Instruct (8B parameters).|
+| [samaya-ai/promptriever-llama3.1-8b-v1](https://huggingface.co/samaya-ai/promptriever-llama3.1-8b-v1) | A Promptriever bi-encoder model based on LLaMA 3.1 (8B parameters).|
+| [samaya-ai/promptriever-mistral-v0.1-7b-v1](https://huggingface.co/samaya-ai/promptriever-mistral-v0.1-7b-v1) | A Promptriever bi-encoder model based on Mistral v0.1 (7B parameters). |
+| [samaya-ai/RepLLaMA-reproduced](https://huggingface.co/samaya-ai/RepLLaMA-reproduced) | A reproduction of the RepLLaMA model (no instructions). A bi-encoder based on LLaMA 2, trained on the [tevatron/msmarco-passage-aug](https://huggingface.co/datasets/Tevatron/msmarco-passage-aug) dataset. |
+| [samaya-ai/msmarco-w-instructions](https://huggingface.co/samaya-ai/msmarco-w-instructions) | A dataset of MS MARCO with added instructions and instruction-negatives, used for training the above models. |
+
 
 ## Setup
 
