@@ -1,9 +1,8 @@
 # Promptriever: Retrieval models can be controlled with prompts, just like language models
 
-Official repository for the paper [Promptriever: Retrieval models can be controlled with prompts, just like language models](todo). This repository contains the code and resources for Promptriever, which demonstrates that retrieval models can be controlled with prompts on a per-instance basis, similar to language models. 
+Official repository for the paper [Promptriever: Retrieval models can be controlled with prompts, just like language models](todo). 
 
-Evaluation can also be done by using the MTEB repository, see [here for examples](todo).
-
+This repository contains the code and resources for Promptriever, which demonstrates that retrieval models can be controlled with prompts on a per-instance basis, similar to language models. 
 
 ## Table of Contents
 - [Links](#links)
@@ -11,7 +10,6 @@ Evaluation can also be done by using the MTEB repository, see [here for examples
 - [Experiments](#experiments)
   - [MSMARCO](#msmarco-experiments)
   - [BEIR](#beir-experiments)
-- [Analysis](#analysis)
 - [Training](#training)
 - [Utilities](#utilities)
 - [Citation](#citation)
@@ -34,18 +32,15 @@ Evaluation can also be done by using the MTEB repository, see [here for examples
 To initialize your research environment:
 
 ```bash
-bash setup/install_conda.sh
+bash setup/install_conda.sh # if you don't have conda already
 bash setup/install_req.sh
-python setup/download_dev_sets.py
+pip install git+https://github.com/orionw/tevatron
 ```
-
-These steps ensure consistent software versions and datasets across all research environments.
 
 ## Experiments
 
 ### MSMARCO Experiments
-
-Run a complete MSMARCO experiment:
+Run a MSMARCO experiment (DL19, DL20, Dev) with:
 
 ```bash
 bash msmarco/encode_corpus.sh <output_path> <model_name>
@@ -54,8 +49,15 @@ bash msmarco/search.sh <output_path>
 ```
 
 ### BEIR Experiments
+To reproduce the BEIR experiments you can either use the batch method (running all models):
 
-Execute comprehensive BEIR experiments:
+```bash
+bash scripts/beir/matrix_of_corpus.sh
+bash scripts/beir/matrix_of_prompts.sh
+bash scripts/beir/search_all_prompts.sh <output_path>
+```
+
+Or can also run just one model with:
 
 ```bash
 bash beir/run_all.sh <model_name> <output_nickname>
@@ -63,45 +65,24 @@ bash beir/run_all_prompts.sh <model_name> <output_nickname>
 bash beir/search_all_prompts.sh <output_path>
 ```
 
-The `beir/bm25` subfolder contains scripts for BM25 baseline experiments.
-
-## Analysis
-
-### Visualization
-
-Use scripts in the `plotting` folder to generate insightful visualizations:
-
-- `gather_results.py`: Aggregates results from different runs
-- `get_sd_table.py`: Generates standard deviation tables
-- `make_prompt_all_table.py`: Creates comprehensive prompt-based result tables
-- `make_prompt_table_from_results.py`: Generates detailed tables for prompt effectiveness
-
-### Error Analysis
-
-Conduct in-depth error analysis:
-
-```bash
-python error_analysis/error_analysis.py <run1> <run2> <dataset> <output_dir>
-```
-
-Additional scripts: `error_analysis_bow.py` and `error_analysis_modeling.py`
+The `beir/bm25` subfolder contains scripts for BM25 baseline experiments, using [BM25S](https://github.com/xhluca/bm25s).
 
 ## Training
-
-Train or fine-tune retrieval models:
+To train a Promptriever model, you can use the scripts in `scripts/training/*`:
 
 ```bash
-bash training/train.sh <model_args>
+bash scripts/training/train.sh <output_name> <dataset_name> <gpu_ids> <port>
 ```
 
 Available training scripts:
+- `train_instruct.sh` (Llama 2)
 - `train_instruct_llama3_instruct.sh`
 - `train_instruct_llama3.sh`
 - `train_instruct_mistral_v1.sh`
-- `train_instruct_mistral.sh`
-- `train_instruct.sh`
+- `train_instruct_mistral.sh` (v0.3)
 
 ## Utilities
+There are a variety of utilities to symlink corpus files (to avoid double storage when doing the dev set optimization), to upload models to Huggingface, and to filter out bad instruction-negatives.
 
 - `utils/symlink_dev.sh` and `utils/symlink_msmarco.sh`: Optimize storage usage
 - `utils/upload_to_hf_all.py` and `utils/upload_to_hf.py`: Upload models to Hugging Face Hub
@@ -113,6 +94,11 @@ Available training scripts:
 If you found the code, data or model useful, free to cite:
 
 ```bibtex
-@misc{todo}
+@article{weller2024promptriever,
+  title={Promptriever: Instruction-Trained Retrievers Can Be Prompted Like Language Models},
+  author={Weller, Orion and Van Durme, Benjamin and Lawrie, Dawn and Paranjape, Ashwin and Zhang, Yuhao and Hessel, Jack},
+  journal={arXiv preprint TODO},
+  year={2024}
 }
+
 ```
