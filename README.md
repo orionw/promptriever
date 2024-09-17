@@ -1,6 +1,6 @@
-# Promptriever: Retrieval models can be controlled with prompts, just like language models
+# Promptriever: Instruction-Trained Retrievers Can Be Prompted Like Language Models
 
-Official repository for the paper [Promptriever: Retrieval models can be controlled with prompts, just like language models](todo). 
+Official repository for the paper [Promptriever: Instruction-Trained Retrievers Can Be Prompted Like Language Models](todo). 
 
 This repository contains the code and resources for Promptriever, which demonstrates that retrieval models can be controlled with prompts on a per-instance basis, similar to language models. 
 
