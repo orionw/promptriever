@@ -1,4 +1,5 @@
 #!/bin/bash
+# Reproduction of RepLLaMA
 deepspeed --include localhost:0,1,2,3 --master_port 60000 --module tevatron.retriever.driver.train \
   --deepspeed deepspeed/ds_zero3_config.json \
   --output_dir retriever-llama2-4gpu \

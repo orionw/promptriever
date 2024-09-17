@@ -43,6 +43,19 @@ datasets=(
     'dbpedia-entity-dev'
     'quora-dev'
     'fever-dev'
+    'msmarco'
+    "cqadupstack-android"
+    "cqadupstack-english"
+    "cqadupstack-gaming"
+    "cqadupstack-gis"
+    "cqadupstack-wordpress"
+    "cqadupstack-physics"
+    "cqadupstack-programmers"
+    "cqadupstack-stats"
+    "cqadupstack-tex"
+    "cqadupstack-unix"
+    "cqadupstack-webmasters"
+    "cqadupstack-wordpress"
 )
 
 

@@ -69,7 +69,7 @@ def write_to_csv(results, output_file):
             writer.writerow(row)
 
 def main():
-    directories = ['joint-full', 'bm25', "reproduced-v2"]
+    directories = ['joint-full', 'bm25', "reproduced-v2", "llama3.1", "llama3.1-instruct", "mistral-v0.1", "mistral-v0.3"]
     results_folder = 'results'
     
     # Create results folder if it doesn't exist

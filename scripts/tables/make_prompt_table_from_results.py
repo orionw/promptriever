@@ -4,15 +4,11 @@ import statistics
 import os
 import random
 
-
+# old hashes that are unused.
 SKIP_OLD_HASHES = [
-    "0ab0de14665a035b4ce74ea58f0aeb0b", # 
-    # "d2b1fa425e0198eb5ba2f9ceaa946389",
-    # "bc8581d1f8b9b223247df82aa13707fc",
-    # "b09133128f72179896830b2f10a6fa9e",
+    "0ab0de14665a035b4ce74ea58f0aeb0b", 
     "11c51cdccc21293fad66b37e75bbdc94",
-    # "eeee229082555a0f22c493370c12651e",
-    "476c48e5591c52d8000c65bc88421652" # remove it, match key phrases
+    "476c48e5591c52d8000c65bc88421652"
 ]
 
 
@@ -207,7 +203,7 @@ latex_table = generate_latex_table(bm25_data, repllama_data, modelname_data)
 with open('results/final_table.tex', 'w') as f:
     f.write(latex_table)
 
-print("Final table has been generated and saved as 'final_table.tex'")
+print("Final table has been generated and saved as 'results/final_table.tex'")
 
 def remove_prompt_columns_refined(latex_table):
     lines = latex_table.split('\n')
@@ -248,4 +244,4 @@ modified_latex_table = remove_prompt_columns_refined(latex_table)
 with open('results/final_table_without_prompt_refined.tex', 'w') as f:
     f.write(modified_latex_table)
 
-print("Modified table without 'Prompt' columns has been generated and saved as 'final_table_without_prompt_refined.tex'")
+print("Modified table without 'Prompt' columns has been generated and saved as 'results/final_table_without_prompt_refined.tex'")

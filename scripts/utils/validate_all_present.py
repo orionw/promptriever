@@ -20,7 +20,7 @@ def load_and_hash_csv(filename, column_name):
     df.to_csv(f"results/{filename}_hashes.csv", index=False)
     return set(df[column_name].apply(calculate_md5))
 
-def validate_hashes(data_csv, generic_hashes, domain_hashes):
+def validate_hashes(data_csv, generic_hashes):
     df = pd.read_csv(f"results/{data_csv}_results.csv")
     
     dataset_hashes = defaultdict(set)
@@ -39,51 +39,22 @@ def validate_hashes(data_csv, generic_hashes, domain_hashes):
             print(f"Total hashes in dataset: {len(hashes)}")
             print(f"Missing generic hashes: {len(missing_generic)}")
             print(missing_generic)
-        
-        if dataset in domain_hashes: # not every dataset has domain-specific, e.g. dev sets
-            missing_domain = domain_hashes[dataset] - hashes
-            if missing_domain:
-                print(f"\nDataset: {dataset}")
-                print(f"Total hashes in dataset: {len(hashes)}")
-                print(f"Missing domain hashes: {len(missing_domain)}")
-                print(missing_domain)
-        
-        # if not missing_generic and (dataset not in domain_hashes or not missing_domain):
-        #     print(f"All expected hashes present for dataset {dataset}.")
-    
-    # Check for datasets in domain_hashes that are not in the results
-    missing_datasets = set(domain_hashes.keys()) - set(dataset_hashes.keys())
-    if missing_datasets:
-        print("\nDatasets missing from results:")
-        print(missing_datasets)
+        # else:
+        #     print(f"\nDataset: {dataset}")
+        #     print("All generic hashes present.")
+
 
 def main():
     parser = argparse.ArgumentParser(description="Validate CSV file hashes against generic and domain CSV files.")
     parser.add_argument("file_to_validate", help="The CSV file to validate")
     parser.add_argument("--generic", default="generic_prompts.csv", help="Path to the generic CSV file (default: generic_prompts.csv)")
-    parser.add_argument("--domain", default="domain_prompts.csv", help="Path to the domain CSV file (default: domain_prompts.csv)")
     
     args = parser.parse_args()
 
     try:
-        # Load and hash the generic CSV file
         generic_hashes = load_and_hash_csv(args.generic, 'prompt')
-        
-        # Load and hash the domain CSV file
-        domain_df = pd.read_csv(args.domain, header=None, index_col=None)
-        domain_df.columns = ["dataset", "prompt"]
-        domain_hashes = defaultdict(set)
-        hash_map = {}
-        for _, row in domain_df.iterrows():
-            domain_hashes[row['dataset']].add(calculate_md5(row['prompt']))
-            hash_map[calculate_md5(row['prompt'])] = row['prompt']
-
-        # save hash map
-        with open("results/hash_map_domain.json", "w") as f:
-            json.dump(hash_map, f)
-
         # Validate the data CSV file
-        validate_hashes(args.file_to_validate, generic_hashes, domain_hashes)
+        validate_hashes(args.file_to_validate, generic_hashes)
     except FileNotFoundError as e:
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
@@ -99,5 +70,10 @@ def main():
 if __name__ == "__main__":
     main()
 
-    # python scripts/validate_all_present.py joint-full
-    # python scripts/validate_all_present.py bm25
+    # python scripts/utils/validate_all_present.py joint-full
+    # python scripts/utils/validate_all_present.py bm25
+    # python scripts/utils/validate_all_present.py llama3.1
+    # python scripts/utils/validate_all_present.py llama3.1-instruct
+    # python scripts/utils/validate_all_present.py mistral-v0.1
+    # python scripts/utils/validate_all_present.py reproduced-v2
+    # python scripts/utils/validate_all_present.py mistral-v0.3

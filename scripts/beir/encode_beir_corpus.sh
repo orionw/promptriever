@@ -42,7 +42,7 @@ do
       --per_device_eval_batch_size 32 \
       --query_max_len 512 \
       --passage_max_len 512 \
-      --dataset_name "Tevatron/beir-corpus" \
+      --dataset_name "orionweller/beir-corpus" \
       --dataset_config "$dataset_name" \
       --dataset_split "train" \
       --dataset_number_of_shards 8 \
@@ -63,7 +63,7 @@ do
     --per_device_eval_batch_size 32 \
     --query_max_len 512 \
     --passage_max_len 512 \
-    --dataset_name "Tevatron/beir-corpus" \
+    --dataset_name "orionweller/beir-corpus" \
     --dataset_config "$dataset_name" \
     --dataset_split "train" \
     --dataset_number_of_shards 8 \
@@ -72,4 +72,3 @@ do
   fi
 done
   
-# bash scripts/beir/encode_beir_corpus.sh reproduced-v2/scifact orionweller/repllama-reproduced-v2 scifact

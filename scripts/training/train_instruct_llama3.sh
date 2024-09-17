@@ -1,9 +1,5 @@
 #!/bin/bash
 # args are (1) name of run (2) dataset, and (3) nodes e.g. "0,1,2,3" (4) port num either 1 or 2 or something
-# bash train_instruct.sh standard orionweller/instruction-msmarco-passage-aug-50-fixed-standard "0,1,2,3" 2 > standard-percent-4gpu.log 2>&1
-
-# bash train_instruct.sh old_standard orionweller/instruction-msmarco-passage-aug-50-percent "4,5,6,7" 2 > old_standard-percent-4gpu.log
-# bash train_instruct.sh standard_fixed orionweller/instruction-msmarco-passage-aug-50-fixed-standard "0,1,2,3" 0 > generic-4gpu-long.log
 
 echo "Args are $1 $2 $3 $4"
 deepspeed --include localhost:$3 --master_port "6000$4" --module tevatron.retriever.driver.train \

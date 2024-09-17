@@ -67,7 +67,7 @@ for prompt in sorted_prompts:
 latex_table += "\\hline\n\\end{tabular}\n\\caption{Dataset scores for different prompts}\n\\label{tab:dataset_scores}\n\\end{table}"
 
 # Write the LaTeX table to a file
-with open('dataset_scores_table.tex', 'w') as f:
+with open('results/dataset_scores_table.tex', 'w') as f:
     f.write(latex_table)
 
-print("LaTeX table has been generated and saved to 'dataset_scores_table.tex'")
+print("LaTeX table has been generated and saved to 'results/dataset_scores_table.tex'")

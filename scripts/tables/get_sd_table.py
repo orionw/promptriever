@@ -97,13 +97,15 @@ def main(file_paths):
     print(file_paths)
     
     for file_path in file_paths:
-        std_devs, avg_std_dev = process_file(file_path)
         if "bm25" in file_path.lower():
             model_name = 'BM25'
         elif "reproduced-v2" in file_path.lower():
             model_name = 'Reproduced-v2'
         elif "joint-full" in file_path.lower():
             model_name = 'Joint-Full'
+        else:
+            continue
+        std_devs, avg_std_dev = process_file(file_path)
         results[model_name] = dict(std_devs)
         results[model_name]['Average'] = avg_std_dev
     

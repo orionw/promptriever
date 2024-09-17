@@ -5,6 +5,9 @@
 # example usage: bash scripts/beir/run_all.sh orionweller/repllama-instruct-mistral-v0.1 mistral-v1 mistralai/Mistral-7B-v0.1
 
 # bash scripts/beir/run_all.sh orionweller/repllama-instruct-llama3.1-instruct llama3.1-instruct meta-llama/Meta-Llama-3.1-8B-Instruct
+# bash scripts/beir/run_all.sh Samaya-AI/promptriever-mistral-v0.1-7b-v1 mistral-v0.1 mistralai/Mistral-7B-v0.1
+# bash scripts/beir/run_all.sh Samaya-AI/promptriever-mistral-v0.3-7b-v1 mistral-v0.3 mistralai/Mistral-7B-v0.3
+
 
 # export CUDA_VISIBLE_DEVICES="4,5,6,7"
 export CUDA_VISIBLE_DEVICES="0,1,2,3,4,5,6,7"
@@ -32,7 +35,20 @@ datasets=(
     'fever'
     'climate-fever'
     'dbpedia-entity'
-    # 'nq'
+    'nq'
+    "cqadupstack-android"
+    "cqadupstack-english"
+    "cqadupstack-gaming"
+    "cqadupstack-gis"
+    "cqadupstack-wordpress"
+    "cqadupstack-physics"
+    "cqadupstack-programmers"
+    "cqadupstack-stats"
+    "cqadupstack-tex"
+    "cqadupstack-unix"
+    "cqadupstack-webmasters"
+    "cqadupstack-wordpress"
+    "msmarco"
 )
 
 for dataset in "${datasets[@]}"; do

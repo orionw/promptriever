@@ -2,8 +2,6 @@
 # conda config --set ssl_verify false
 # conda create -n tevatron python=3.10 -y
 # conda activate tevatron
-# git config --global user.email "wellerorion@gmail.com"
-# git config --global user.name "Orion Weller"
 
 pip install deepspeed accelerate
 pip install transformers datasets peft

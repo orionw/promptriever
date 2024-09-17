@@ -132,5 +132,5 @@ if __name__ == "__main__":
     filter_query_doc_pairs(args)
 
     # example usage
-    #  python scripts/filter_query_doc_pairs_from_batch_gpt -i batch_outputs/batch_instances_Y57xfvrFKYSyxp0SSXIaJXUa.jsonl -o batch_outputs/followir_batch_scores_Y57xfvrFKYSyxp0SSXIaJXUa.tsv
+    #  python scripts/filtering/filter_query_doc_pairs_from_batch_gpt -i batch_outputs/batch_instances_Y57xfvrFKYSyxp0SSXIaJXUa.jsonl -o batch_outputs/followir_batch_scores_Y57xfvrFKYSyxp0SSXIaJXUa.tsv
     
