@@ -1,6 +1,6 @@
 # Promptriever: Instruction-Trained Retrievers Can Be Prompted Like Language Models
 
-Official repository for the paper [Promptriever: Instruction-Trained Retrievers Can Be Prompted Like Language Models](todo). 
+Official repository for the paper [Promptriever: Instruction-Trained Retrievers Can Be Prompted Like Language Models](https://arxiv.org/abs/2409.11136). 
 
 This repository contains the code and resources for Promptriever, which demonstrates that retrieval models can be controlled with prompts on a per-instance basis, similar to language models. 
 
@@ -95,10 +95,12 @@ If you found the code, data or model useful, free to cite:
 
 ```bibtex
 @article{weller2024promptriever,
-  title={Promptriever: Instruction-Trained Retrievers Can Be Prompted Like Language Models},
-  author={Weller, Orion and Van Durme, Benjamin and Lawrie, Dawn and Paranjape, Ashwin and Zhang, Yuhao and Hessel, Jack},
-  journal={arXiv preprint TODO},
-  year={2024}
+      title={Promptriever: Instruction-Trained Retrievers Can Be Prompted Like Language Models}, 
+      author={Orion Weller and Benjamin Van Durme and Dawn Lawrie and Ashwin Paranjape and Yuhao Zhang and Jack Hessel},
+      year={2024},
+      eprint={2409.11136},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/2409.11136}, 
 }
-
 ```
