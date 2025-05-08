@@ -4,6 +4,8 @@ Official repository for the paper [Promptriever: Instruction-Trained Retrievers 
 
 This repository contains the code and resources for Promptriever, which demonstrates that retrieval models can be controlled with prompts on a per-instance basis, similar to language models. 
 
+NOTICE: the **MTEB version of Promptriever is broken in v1, please use the v2 branch** which will become the main branch soon. 
+
 ## Table of Contents
 - [Links](#links)
 - [Setup](#setup)
